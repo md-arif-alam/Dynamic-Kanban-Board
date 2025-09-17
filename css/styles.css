@@ -1,0 +1,143 @@
+:root {
+	--bg: #0f172a;
+	--card: #0b1220;
+	--accent: #06b6d4;
+	--muted: #94a3b8
+}
+
+* {
+	box-sizing: border-box
+}
+
+html,
+body {
+	height: 100%
+}
+
+body {
+	margin: 0;
+	font-family: Inter, Segoe UI, Roboto, system-ui, -apple-system, Arial;
+	background: linear-gradient(180deg, #071025 0%, #071428 100%);
+	color: #e6eef6
+}
+
+.topbar {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+	background: rgba(255, 255, 255, 0.02);
+	backdrop-filter: blur(4px)
+}
+
+.topbar h1 {
+	margin: 0;
+	font-size: 1.25rem
+}
+
+.task-form {
+	margin-left: auto;
+	display: flex;
+	gap: 0.5rem
+}
+
+.task-form input {
+	padding: 0.45rem 0.6rem;
+	border-radius: 6px;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	background: transparent;
+	color: inherit
+}
+
+.task-form button {
+	padding: 0.45rem 0.8rem;
+	border-radius: 6px;
+	border: none;
+	background: var(--accent);
+	color: #012;
+	cursor: pointer
+}
+
+.board {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	padding: 1rem
+}
+
+.column {
+	background: rgba(255, 255, 255, 0.02);
+	padding: 0.75rem;
+	border-radius: 8px;
+	min-height: 60vh
+}
+
+.column h2 {
+	margin: 0 0 0.5rem 0;
+	font-size: 1rem
+}
+
+.task-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	min-height: 40vh;
+	padding: 0.25rem
+}
+
+.task-card {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+	padding: 0.6rem;
+	border-radius: 8px;
+	border: 1px solid rgba(255, 255, 255, 0.03);
+	cursor: grab
+}
+
+.task-card.dragging {
+	opacity: 0.5
+}
+
+.task-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5rem
+}
+
+.task-title {
+	font-size: 0.95rem
+}
+
+.task-desc {
+	margin: 0.4rem 0 0 0;
+	color: var(--muted);
+	font-size: 0.85rem
+}
+
+.actions {
+	display: flex;
+	gap: 0.4rem
+}
+
+.actions button {
+	background: transparent;
+	border: none;
+	color: var(--muted);
+	cursor: pointer
+}
+
+.highlight-drop {
+	outline: 2px dashed rgba(6, 182, 212, 0.6);
+	outline-offset: 4px
+}
+
+@media (max-width:800px) {
+	.board {
+		grid-template-columns: 1fr;
+		min-height: 70vh
+	}
+
+	.task-form {
+		width: 100%
+	}
+}

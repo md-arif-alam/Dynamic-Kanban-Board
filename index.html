@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dynamic Kanban Board</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Dynamic Kanban Board 🗒</h1>
+      <form id="task-form" class="task-form">
+        <input
+          id="task-title"
+          name="title"
+          placeholder="Task title"
+          required
+          maxlength="80"
+        />
+        <input
+          id="task-desc"
+          name="description"
+          placeholder="Short description (optional)"
+        />
+        <button type="submit">Add</button>
+      </form>
+    </header>
+
+    <main class="board" id="board">
+      <section class="column" data-status="todo">
+        <h2>To Do 📝</h2>
+        <div class="task-list" id="todo-list" data-status="todo"></div>
+      </section>
+
+      <section class="column" data-status="inprogress">
+        <h2>In Progress 📈</h2>
+        <div
+          class="task-list"
+          id="inprogress-list"
+          data-status="inprogress"
+        ></div>
+      </section>
+
+      <section class="column" data-status="done">
+        <h2>Done 🎯</h2>
+        <div class="task-list" id="done-list" data-status="done"></div>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <article class="task-card" draggable="true">
+        <div class="task-head">
+          <strong class="task-title"></strong>
+          <div class="actions">
+            <button class="btn-edit" title="Edit">✎</button>
+            <button class="btn-delete" title="Delete">🗑</button>
+          </div>
+        </div>
+        <p class="task-desc"></p>
+      </article>
+    </template>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
